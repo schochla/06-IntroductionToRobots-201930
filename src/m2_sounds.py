@@ -2,20 +2,21 @@
 An opportunity to explore how to make an EV3 Robot make sounds.
 
 Authors: Dave Fisher, David Mutchler, Vibha Alangar,
-         their colleagues, and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         their colleagues, and Leo Schoch-Spana.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 import simple_rosebotics as rb
 
 
 # ------------------------------------------------------------------------------
-# TODO: 2.  This is an   ** OPTIONAL **   exercise.
+# DONE: 2.  This is an   ** OPTIONAL **   exercise.
 #   Using the DOT trick, add code to  make_sounds  to make the robot
 #   make sounds in various ways, using the instance variables of the robot's
 #   SOUND system.
 # ------------------------------------------------------------------------------
 def main():
-    fun_song = [(392, 350, 100), (392, 350, 100), (392, 350, 100),
+    tone_player = rb.ToneMaker()
+    tone_player.play_tone_sequence([(392, 350, 100), (392, 350, 100), (392, 350, 100),
                 (311.1, 250, 100), (466.2, 25, 100), (392, 350, 100),
                 (311.1, 250, 100), (466.2, 25, 100), (392, 700, 100),
                 (587.32, 350, 100), (587.32, 350, 100), (587.32, 350, 100),
@@ -36,7 +37,15 @@ def main():
                 (493.88, 25, 100), (466.16, 25, 100), (440, 25, 100),
                 (466.16, 50, 400), (311.13, 25, 200), (392, 350, 100),
                 (311.13, 250, 100), (466.16, 25, 100), (392.00, 300, 150),
-                (311.13, 250, 100), (466.16, 25, 100), (392, 700)]
+                (311.13, 250, 100), (466.16, 25, 100), (392, 700)])
+
+def speak():
+    speech_player = rb.SpeechMaker()
+    speech_player.speak('hello I am a robot')
+
+def beep():
+    beeper = rb.Beeper()
+    beeper.beep()
 
 
-main()
+speak()
